@@ -20,12 +20,12 @@ void E(){
 //规则 E'->+TE'|ε
 void E1(){
 	if(a[adv] == '+'){
-			cout << "E->+TE'" << endl;
+			cout << "E'->+TE'" << endl;
 			adv++;
 			T();
 			E1();
 	}else{
-		cout << "E->ε" << endl;
+		cout << "E'->ε" << endl;
 	}
 } 
 
