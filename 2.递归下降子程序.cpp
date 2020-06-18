@@ -2,22 +2,22 @@
 #include<string>
 using namespace std;
 
-string a = "";//´æÈë×Ö·û´® 
-int adv = 0;//×Ö·û´®Ğ¡±ê£¬±íÊ¾Ê¹IPÖ¸ÏòÏÂÒ»ÊäÈë·ûºÅ
-void E();
-void E1();
-void T();
-void T1();
-void F();
+string a = "";//å­˜å…¥å­—ç¬¦ä¸² 
+int adv = 0;//å­—ç¬¦ä¸²å°æ ‡ï¼ŒæŒ‡å‘ä¸‹ä¸€è¾“å…¥ç¬¦å·
+void E();//å…¥å£ç¨‹åº 
+void E1();//å¯¹åº”éç»ˆç»“ç¬¦E' 
+void T();//å¯¹åº”éç»ˆç»“ç¬¦T
+void T1();//å¯¹åº”éç»ˆç»“ç¬¦T'
+void F();//å¯¹åº”éç»ˆç»“ç¬¦F
 
-//¹æÔòE->TE'
+//è§„åˆ™ E->TE'
 void E(){
-	cout << "E->TE" << endl;
+	cout << "E->TE'" << endl;
 	T();
 	E1();
 }
 
-//¹æÔòE'->+TE'|¦Å
+//è§„åˆ™ E'->+TE'|Îµ
 void E1(){
 	if(a[adv] == '+'){
 			cout << "E->+TE'" << endl;
@@ -25,30 +25,30 @@ void E1(){
 			T();
 			E1();
 	}else{
-		cout << "E->¦Å" << endl;
+		cout << "E->Îµ" << endl;
 	}
 } 
 
-//¹æÔòT->ET' 
+//è§„åˆ™T->FT' 
 void T(){
 	cout << "T->FT'" << endl;
 	F();
 	T1();
 }
 
-//¹æÔòT'->*FT' 
+//è§„åˆ™T'->*FT' 
 void T1(){
 	if(a[adv] == '*'){
-		cout << "T'->FE'" << endl;
+		cout << "T'->*FT'" << endl;
 		adv++;
 		F();
 		T1();
 	}else{
-		cout <<"T'->¦Å" << endl;
+		cout <<"T'->Îµ" << endl;
 	}
 }
 
-//¹æÔòF->(E)|i 
+//è§„åˆ™F->(E)|i 
 void F(){
 	if(a[adv] == '('){
 		adv++;
@@ -61,7 +61,7 @@ void F(){
 			exit(0);
 		}
 	}else if(a[adv] == 'i'){
-		cout << "E->i" << endl;
+		cout << "F->i" << endl;
 		adv++; 
 	}else{
 		cout << "err!" << endl;
@@ -70,11 +70,11 @@ void F(){
 }
 
 int main(void){
-	cin >> a; "ÊäÈë×Ö·û´®"
-	E(); "Èë¿Ú³ÌĞò"
-	if(a[adv] == '#'){"Èç¹ûÆ¥Åäµ½½áÊø·û,ËµÃ÷Æ¥Åä³É¹¦"
+	cin >> a; //è¾“å…¥å­—ç¬¦ä¸²
+	E(); //å…¥å£ç¨‹åºï¼Œå¼€å§‹é€’å½’ä¸‹é™å­ç¨‹åºåŒ¹é…è¿‡ç¨‹ 
+	if(a[adv] == '#'){//å¦‚æœåŒ¹é…åˆ°ç»“æŸç¬¦,è¯´æ˜åŒ¹é…æˆåŠŸ
 		cout << a << " is a match! " << endl;
-	}else{
+	}else{//å¦åˆ™ä¸­é€”åŒ¹é…å¤±è´¥é€€å‡ºç¨‹åº 
 		cout << " err! " << endl;
 	}
 	return 0;
